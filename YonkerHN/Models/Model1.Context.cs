@@ -13,10 +13,10 @@ namespace YonkerHN.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WorkshopHNEntities : DbContext
+    public partial class WorkshopHNContext : DbContext
     {
-        public WorkshopHNEntities()
-            : base("name=WorkshopHNEntities")
+        public WorkshopHNContext()
+            : base("name=WorkshopHNContext")
         {
         }
     

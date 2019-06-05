@@ -1,0 +1,60 @@
+﻿@model YonkerHN.Models.LogIn.LogInViewModel
+
+<div class="row login-footer">
+    <div class="login-form">
+        <div class="signup-box">
+            <div class="card">
+                <div class="body">
+                    @using (Html.BeginForm("Index", "LogIn", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "form_login2" }))
+                    {
+                        if (ViewData.ModelState[""]?.Errors?.Any() == true)
+                        {
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="card">
+                                    <div class="body bg-red">
+                                        @Html.ValidationSummary(true)
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        if (Model.MessageError != null)
+                        {
+                            <div class="alert alert-danger">
+                                <strong>Error! </strong>@Model.MessageError
+                            </div>
+
+                        }
+
+                        <div class="msg">Ingrese sus credenciales para iniciar sesión</div>
+                        <br />
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">email</i>
+                            </span>
+                            <div class="form-line @((ViewData.ModelState[nameof(Model.UserName)]?.Errors?.Any()).GetValueOrDefault() ? "error" : string.Empty)">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Correo o usuario" })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "error" }, "label")
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">lock</i>
+                            </span>
+                            <div class="form-line @((ViewData.ModelState[nameof(Model.Password)]?.Errors?.Any()).GetValueOrDefault() ? "error" : string.Empty)">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Contraseña" })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "error" }, "label")
+                        </div>
+                        <br />
+                        <button type="submit" class="btn-login">
+                            <i class="entypo-login"></i>
+                            Iniciar Sesión
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
