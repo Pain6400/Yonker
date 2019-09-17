@@ -11,7 +11,7 @@ namespace YonkerHN.Controllers
 {
     public class LogInController : Controller
     {
-        WorkshopHNContext db = new WorkshopHNContext();
+        YonkersContext db = new YonkersContext();
 
         public ActionResult Index()
         {
@@ -23,12 +23,29 @@ namespace YonkerHN.Controllers
         [HttpPost]
         public ActionResult Index(LogInViewModel login)
         {
-            foreach (var item in db.UsersHN)
+            foreach (var item in db.Usuario)
             {
-                if (item.UserName == login.UserName && item.Password == login.Password)
+                if (item.Empleado.Any())
                 {
-                  return RedirectToAction("Index", "Home");
+                    foreach (var item2 in item.Empleado)
+                    {
+                        if (item2.nombreemp == login.UserName && item2.contraseña == login.Password)
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
                 }
+                else
+                {
+                    foreach (var item2 in item.Cliente)
+                    {
+                        if (item2.nombrecli == login.UserName && item2.contraseña == login.Password)
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
+                }
+
             }
 
             var nolog = new LogInViewModel

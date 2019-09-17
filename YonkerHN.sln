@@ -5,16 +5,29 @@ VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YonkerHN", "YonkerHN\YonkerHN.csproj", "{727B4D28-4A15-4673-97F2-D759543D1A81}"
 EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "ReportYonker", "ReportYonker\ReportYonker.rptproj", "{D0E79196-4624-4791-ABDB-04BFF59807A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		DebugLocal|Any CPU = DebugLocal|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{727B4D28-4A15-4673-97F2-D759543D1A81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{727B4D28-4A15-4673-97F2-D759543D1A81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{727B4D28-4A15-4673-97F2-D759543D1A81}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{727B4D28-4A15-4673-97F2-D759543D1A81}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
 		{727B4D28-4A15-4673-97F2-D759543D1A81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{727B4D28-4A15-4673-97F2-D759543D1A81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0E79196-4624-4791-ABDB-04BFF59807A5}.Debug|Any CPU.ActiveCfg = Debug
+		{D0E79196-4624-4791-ABDB-04BFF59807A5}.Debug|Any CPU.Build.0 = Debug
+		{D0E79196-4624-4791-ABDB-04BFF59807A5}.Debug|Any CPU.Deploy.0 = Debug
+		{D0E79196-4624-4791-ABDB-04BFF59807A5}.DebugLocal|Any CPU.ActiveCfg = DebugLocal
+		{D0E79196-4624-4791-ABDB-04BFF59807A5}.DebugLocal|Any CPU.Build.0 = DebugLocal
+		{D0E79196-4624-4791-ABDB-04BFF59807A5}.Release|Any CPU.ActiveCfg = Release
+		{D0E79196-4624-4791-ABDB-04BFF59807A5}.Release|Any CPU.Build.0 = Release
+		{D0E79196-4624-4791-ABDB-04BFF59807A5}.Release|Any CPU.Deploy.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

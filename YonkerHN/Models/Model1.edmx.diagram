@@ -4,21 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e37099fa58fa4756a78b45e2b4e85b90" Name="Diagram1">
-        <EntityTypeShape EntityType="WorkshopHNModel.Category" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WorkshopHNModel.Customers" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WorkshopHNModel.Employee" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="WorkshopHNModel.Locations" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WorkshopHNModel.Products" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WorkshopHNModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WorkshopHNModel.UsersHN" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="WorkshopHNModel.Yonkers" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="WorkshopHNModel.CategoryId" ManuallyRouted="false" />
-        <AssociationConnector Association="WorkshopHNModel.CustomerId" ManuallyRouted="false" />
-        <AssociationConnector Association="WorkshopHNModel.EmployeeId" ManuallyRouted="false" />
-        <AssociationConnector Association="WorkshopHNModel.YonkerId" ManuallyRouted="false" />
-        <AssociationConnector Association="WorkshopHNModel.LocationId" ManuallyRouted="false" />
-        <AssociationConnector Association="WorkshopHNModel.ProductId" ManuallyRouted="false" />
+      <Diagram DiagramId="d4d902936e5f46a68633d99e0522b62c" Name="Diagram1">
+        <EntityTypeShape EntityType="RecanvisHN.bacpacModel.Categoria" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecanvisHN.bacpacModel.Cliente" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecanvisHN.bacpacModel.Empleado" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecanvisHN.bacpacModel.Producto" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecanvisHN.bacpacModel.ubicacion" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecanvisHN.bacpacModel.Usuario" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecanvisHN.bacpacModel.Yonker" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="RecanvisHN.bacpacModel.FK__Producto__catego__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="RecanvisHN.bacpacModel.FK__Cliente__usuario__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="RecanvisHN.bacpacModel.FK__Empleado__usuari__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="RecanvisHN.bacpacModel.FK__Empleado__yonker__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="RecanvisHN.bacpacModel.FK__Producto__yonker__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="RecanvisHN.bacpacModel.FK__Yonker__ubicacio__47DBAE45" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

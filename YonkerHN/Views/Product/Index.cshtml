@@ -1,0 +1,55 @@
+﻿@model IEnumerable<YonkerHN.Models.Product.ProductListViewModel>
+
+    <div>
+        <br />
+        @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary" })
+        <a id="ReportUrl_Performance" href="@Url.Action("ReportTemplate", "Reports", new { ReportName = "Productos", ReportDescription = "Performance Report", Width = 100, Height = 650 })">
+            Performance Report
+        </a>
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+
+<div class="header">
+    <div class="body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover js-basic-example dataTable text-nowrap">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <td>
+                        @Html.DisplayNameFor(model => model.CaregoryName)
+                    </td>
+                    <th>Opciones</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                             @Html.DisplayFor(modelItem => item.CaregoryName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

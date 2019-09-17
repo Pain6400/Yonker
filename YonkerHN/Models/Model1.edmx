@@ -4,384 +4,350 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WorkshopHNModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Category">
+      <Schema Namespace="RecanvisHN.bacpacModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categoria">
           <Key>
-            <PropertyRef Name="CategoryId" />
+            <PropertyRef Name="categoriaID" />
           </Key>
-          <Property Name="CategoryId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Descripction" Type="varchar" MaxLength="50" />
+          <Property Name="categoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreca" Type="varchar" MaxLength="25" Nullable="false" />
         </EntityType>
-        <EntityType Name="Customers">
+        <EntityType Name="Cliente">
           <Key>
-            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="clienteID" />
           </Key>
-          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Phone" Type="int" />
-          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="clienteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombrecli" Type="varchar" MaxLength="50" />
+          <Property Name="usuariocli" Type="varchar" MaxLength="50" />
+          <Property Name="contraseña" Type="varchar" MaxLength="10" />
+          <Property Name="usuarioID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Employee">
+        <EntityType Name="Empleado">
           <Key>
-            <PropertyRef Name="EmployeeId" />
+            <PropertyRef Name="empleadoID" />
           </Key>
-          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Phone" Type="int" />
-          <Property Name="Email" Type="varchar" MaxLength="50" />
-          <Property Name="YonkerId" Type="int" />
+          <Property Name="empleadoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreemp" Type="varchar" MaxLength="50" />
+          <Property Name="contraseña" Type="varchar" MaxLength="10" />
+          <Property Name="yonkerID" Type="int" Nullable="false" />
+          <Property Name="usuarioID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Locations">
+        <EntityType Name="Producto">
           <Key>
-            <PropertyRef Name="LocationId" />
+            <PropertyRef Name="productoID" />
           </Key>
-          <Property Name="LocationId" Type="int" Nullable="false" />
-          <Property Name="Department" Type="varchar" MaxLength="50" />
-          <Property Name="Zone" Type="varchar" MaxLength="50" />
-          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="productoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombrepro" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="precio" Type="int" Nullable="false" />
+          <Property Name="yonkerID" Type="int" Nullable="false" />
+          <Property Name="categoriaID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Products">
+        <EntityType Name="ubicacion">
           <Key>
-            <PropertyRef Name="ProductId" />
+            <PropertyRef Name="ubicacionID" />
           </Key>
-          <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Code" Type="varchar" MaxLength="50" />
-          <Property Name="CategoryId" Type="int" />
+          <Property Name="ubicacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreU" Type="varchar" MaxLength="25" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="Usuario">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="usuarioID" />
           </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="usuarioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoU" Type="varchar" MaxLength="25" Nullable="false" />
         </EntityType>
-        <EntityType Name="UsersHN">
+        <EntityType Name="Yonker">
           <Key>
-            <PropertyRef Name="UserId" />
+            <PropertyRef Name="yonkerID" />
           </Key>
-          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="varchar" MaxLength="50" />
-          <Property Name="Password" Type="varchar" MaxLength="50" />
-          <Property Name="EmployeeId" Type="int" Nullable="false" />
-          <Property Name="CustomerId" Type="int" />
+          <Property Name="yonkerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="ubicacionID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Yonkers">
-          <Key>
-            <PropertyRef Name="YonkerId" />
-          </Key>
-          <Property Name="YonkerId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Description" Type="varchar" MaxLength="50" />
-          <Property Name="LocationId" Type="int" />
-          <Property Name="ProductId" Type="int" />
-        </EntityType>
-        <Association Name="CategoryId">
-          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+        <Association Name="FK__Cliente__usuario__4316F928">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="usuarioID" />
             </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="CategoryId" />
+            <Dependent Role="Cliente">
+              <PropertyRef Name="usuarioID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CustomerId">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
-          <End Role="UsersHN" Type="Self.UsersHN" Multiplicity="*" />
+        <Association Name="FK__Empleado__usuari__44FF419A">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="CustomerId" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="usuarioID" />
             </Principal>
-            <Dependent Role="UsersHN">
-              <PropertyRef Name="CustomerId" />
+            <Dependent Role="Empleado">
+              <PropertyRef Name="usuarioID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EmployeeId">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="UsersHN" Type="Self.UsersHN" Multiplicity="*" />
+        <Association Name="FK__Empleado__yonker__440B1D61">
+          <End Role="Yonker" Type="Self.Yonker" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EmployeeId" />
+            <Principal Role="Yonker">
+              <PropertyRef Name="yonkerID" />
             </Principal>
-            <Dependent Role="UsersHN">
-              <PropertyRef Name="EmployeeId" />
+            <Dependent Role="Empleado">
+              <PropertyRef Name="yonkerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="LocationId">
-          <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
-          <End Role="Yonkers" Type="Self.Yonkers" Multiplicity="*" />
+        <Association Name="FK__Producto__catego__6A30C649">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="LocationId" />
+            <Principal Role="Categoria">
+              <PropertyRef Name="categoriaID" />
             </Principal>
-            <Dependent Role="Yonkers">
-              <PropertyRef Name="LocationId" />
+            <Dependent Role="Producto">
+              <PropertyRef Name="categoriaID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ProductId">
-          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
-          <End Role="Yonkers" Type="Self.Yonkers" Multiplicity="*" />
+        <Association Name="FK__Producto__yonker__45F365D3">
+          <End Role="Yonker" Type="Self.Yonker" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="ProductId" />
+            <Principal Role="Yonker">
+              <PropertyRef Name="yonkerID" />
             </Principal>
-            <Dependent Role="Yonkers">
-              <PropertyRef Name="ProductId" />
+            <Dependent Role="Producto">
+              <PropertyRef Name="yonkerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="YonkerId">
-          <End Role="Yonkers" Type="Self.Yonkers" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+        <Association Name="FK__Yonker__ubicacio__47DBAE45">
+          <End Role="ubicacion" Type="Self.ubicacion" Multiplicity="1" />
+          <End Role="Yonker" Type="Self.Yonker" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Yonkers">
-              <PropertyRef Name="YonkerId" />
+            <Principal Role="ubicacion">
+              <PropertyRef Name="ubicacionID" />
             </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="YonkerId" />
+            <Dependent Role="Yonker">
+              <PropertyRef Name="ubicacionID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WorkshopHNModelStoreContainer">
-          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UsersHN" EntityType="Self.UsersHN" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Yonkers" EntityType="Self.Yonkers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="CategoryId" Association="Self.CategoryId">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="Products" EntitySet="Products" />
+        <EntityContainer Name="RecanvisHNbacpacModelStoreContainer">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ubicacion" EntityType="Self.ubicacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yonker" EntityType="Self.Yonker" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cliente__usuario__4316F928" Association="Self.FK__Cliente__usuario__4316F928">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cliente" EntitySet="Cliente" />
           </AssociationSet>
-          <AssociationSet Name="CustomerId" Association="Self.CustomerId">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="UsersHN" EntitySet="UsersHN" />
+          <AssociationSet Name="FK__Empleado__usuari__44FF419A" Association="Self.FK__Empleado__usuari__44FF419A">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
-          <AssociationSet Name="EmployeeId" Association="Self.EmployeeId">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="UsersHN" EntitySet="UsersHN" />
+          <AssociationSet Name="FK__Empleado__yonker__440B1D61" Association="Self.FK__Empleado__yonker__440B1D61">
+            <End Role="Yonker" EntitySet="Yonker" />
+            <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
-          <AssociationSet Name="LocationId" Association="Self.LocationId">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="Yonkers" EntitySet="Yonkers" />
+          <AssociationSet Name="FK__Producto__catego__6A30C649" Association="Self.FK__Producto__catego__6A30C649">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
-          <AssociationSet Name="ProductId" Association="Self.ProductId">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="Yonkers" EntitySet="Yonkers" />
+          <AssociationSet Name="FK__Producto__yonker__45F365D3" Association="Self.FK__Producto__yonker__45F365D3">
+            <End Role="Yonker" EntitySet="Yonker" />
+            <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
-          <AssociationSet Name="YonkerId" Association="Self.YonkerId">
-            <End Role="Yonkers" EntitySet="Yonkers" />
-            <End Role="Employee" EntitySet="Employee" />
+          <AssociationSet Name="FK__Yonker__ubicacio__47DBAE45" Association="Self.FK__Yonker__ubicacio__47DBAE45">
+            <End Role="ubicacion" EntitySet="ubicacion" />
+            <End Role="Yonker" EntitySet="Yonker" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="WorkshopHNModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Category">
+      <Schema Namespace="RecanvisHN.bacpacModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categoria">
           <Key>
-            <PropertyRef Name="CategoryId" />
+            <PropertyRef Name="categoriaID" />
           </Key>
-          <Property Name="CategoryId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Descripction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Products" Relationship="Self.CategoryId" FromRole="Category" ToRole="Products" />
+          <Property Name="categoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreca" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__Producto__catego__6A30C649" FromRole="Categoria" ToRole="Producto" />
         </EntityType>
-        <EntityType Name="Customers">
+        <EntityType Name="Cliente">
           <Key>
-            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="clienteID" />
           </Key>
-          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="Int32" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="UsersHN" Relationship="Self.CustomerId" FromRole="Customers" ToRole="UsersHN" />
+          <Property Name="clienteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombrecli" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usuariocli" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contraseña" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="usuarioID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Cliente__usuario__4316F928" FromRole="Cliente" ToRole="Usuario" />
         </EntityType>
-        <EntityType Name="Employee">
+        <EntityType Name="Empleado">
           <Key>
-            <PropertyRef Name="EmployeeId" />
+            <PropertyRef Name="empleadoID" />
           </Key>
-          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="Int32" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="YonkerId" Type="Int32" />
-          <NavigationProperty Name="UsersHN" Relationship="Self.EmployeeId" FromRole="Employee" ToRole="UsersHN" />
-          <NavigationProperty Name="Yonkers" Relationship="Self.YonkerId" FromRole="Employee" ToRole="Yonkers" />
+          <Property Name="empleadoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreemp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contraseña" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="yonkerID" Type="Int32" Nullable="false" />
+          <Property Name="usuarioID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Empleado__usuari__44FF419A" FromRole="Empleado" ToRole="Usuario" />
+          <NavigationProperty Name="Yonker" Relationship="Self.FK__Empleado__yonker__440B1D61" FromRole="Empleado" ToRole="Yonker" />
         </EntityType>
-        <EntityType Name="Locations">
+        <EntityType Name="Producto">
           <Key>
-            <PropertyRef Name="LocationId" />
+            <PropertyRef Name="productoID" />
           </Key>
-          <Property Name="LocationId" Type="Int32" Nullable="false" />
-          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Yonkers" Relationship="Self.LocationId" FromRole="Locations" ToRole="Yonkers" />
+          <Property Name="productoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombrepro" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="precio" Type="Int32" Nullable="false" />
+          <Property Name="yonkerID" Type="Int32" Nullable="false" />
+          <Property Name="categoriaID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categoria" Relationship="Self.FK__Producto__catego__6A30C649" FromRole="Producto" ToRole="Categoria" />
+          <NavigationProperty Name="Yonker" Relationship="Self.FK__Producto__yonker__45F365D3" FromRole="Producto" ToRole="Yonker" />
         </EntityType>
-        <EntityType Name="Products">
+        <EntityType Name="ubicacion">
           <Key>
-            <PropertyRef Name="ProductId" />
+            <PropertyRef Name="ubicacionID" />
           </Key>
-          <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CategoryId" Type="Int32" />
-          <NavigationProperty Name="Category" Relationship="Self.CategoryId" FromRole="Products" ToRole="Category" />
-          <NavigationProperty Name="Yonkers" Relationship="Self.ProductId" FromRole="Products" ToRole="Yonkers" />
+          <Property Name="ubicacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreU" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Yonker" Relationship="Self.FK__Yonker__ubicacio__47DBAE45" FromRole="ubicacion" ToRole="Yonker" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="Usuario">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="usuarioID" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="usuarioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoU" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__usuario__4316F928" FromRole="Usuario" ToRole="Cliente" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__usuari__44FF419A" FromRole="Usuario" ToRole="Empleado" />
         </EntityType>
-        <EntityType Name="UsersHN">
+        <EntityType Name="Yonker">
           <Key>
-            <PropertyRef Name="UserId" />
+            <PropertyRef Name="yonkerID" />
           </Key>
-          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-          <Property Name="CustomerId" Type="Int32" />
-          <NavigationProperty Name="Customers" Relationship="Self.CustomerId" FromRole="UsersHN" ToRole="Customers" />
-          <NavigationProperty Name="Employee" Relationship="Self.EmployeeId" FromRole="UsersHN" ToRole="Employee" />
+          <Property Name="yonkerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ubicacionID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__yonker__440B1D61" FromRole="Yonker" ToRole="Empleado" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__Producto__yonker__45F365D3" FromRole="Yonker" ToRole="Producto" />
+          <NavigationProperty Name="ubicacion" Relationship="Self.FK__Yonker__ubicacio__47DBAE45" FromRole="Yonker" ToRole="ubicacion" />
         </EntityType>
-        <EntityType Name="Yonkers">
-          <Key>
-            <PropertyRef Name="YonkerId" />
-          </Key>
-          <Property Name="YonkerId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LocationId" Type="Int32" />
-          <Property Name="ProductId" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.YonkerId" FromRole="Yonkers" ToRole="Employee" />
-          <NavigationProperty Name="Locations" Relationship="Self.LocationId" FromRole="Yonkers" ToRole="Locations" />
-          <NavigationProperty Name="Products" Relationship="Self.ProductId" FromRole="Yonkers" ToRole="Products" />
-        </EntityType>
-        <Association Name="CategoryId">
-          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+        <Association Name="FK__Producto__catego__6A30C649">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
+            <Principal Role="Categoria">
+              <PropertyRef Name="categoriaID" />
             </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="CategoryId" />
+            <Dependent Role="Producto">
+              <PropertyRef Name="categoriaID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CustomerId">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
-          <End Role="UsersHN" Type="Self.UsersHN" Multiplicity="*" />
+        <Association Name="FK__Cliente__usuario__4316F928">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="CustomerId" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="usuarioID" />
             </Principal>
-            <Dependent Role="UsersHN">
-              <PropertyRef Name="CustomerId" />
+            <Dependent Role="Cliente">
+              <PropertyRef Name="usuarioID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EmployeeId">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="UsersHN" Type="Self.UsersHN" Multiplicity="*" />
+        <Association Name="FK__Empleado__usuari__44FF419A">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EmployeeId" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="usuarioID" />
             </Principal>
-            <Dependent Role="UsersHN">
-              <PropertyRef Name="EmployeeId" />
+            <Dependent Role="Empleado">
+              <PropertyRef Name="usuarioID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="YonkerId">
-          <End Role="Yonkers" Type="Self.Yonkers" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+        <Association Name="FK__Empleado__yonker__440B1D61">
+          <End Role="Yonker" Type="Self.Yonker" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Yonkers">
-              <PropertyRef Name="YonkerId" />
+            <Principal Role="Yonker">
+              <PropertyRef Name="yonkerID" />
             </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="YonkerId" />
+            <Dependent Role="Empleado">
+              <PropertyRef Name="yonkerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="LocationId">
-          <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
-          <End Role="Yonkers" Type="Self.Yonkers" Multiplicity="*" />
+        <Association Name="FK__Producto__yonker__45F365D3">
+          <End Role="Yonker" Type="Self.Yonker" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="LocationId" />
+            <Principal Role="Yonker">
+              <PropertyRef Name="yonkerID" />
             </Principal>
-            <Dependent Role="Yonkers">
-              <PropertyRef Name="LocationId" />
+            <Dependent Role="Producto">
+              <PropertyRef Name="yonkerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ProductId">
-          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
-          <End Role="Yonkers" Type="Self.Yonkers" Multiplicity="*" />
+        <Association Name="FK__Yonker__ubicacio__47DBAE45">
+          <End Role="ubicacion" Type="Self.ubicacion" Multiplicity="1" />
+          <End Role="Yonker" Type="Self.Yonker" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="ProductId" />
+            <Principal Role="ubicacion">
+              <PropertyRef Name="ubicacionID" />
             </Principal>
-            <Dependent Role="Yonkers">
-              <PropertyRef Name="ProductId" />
+            <Dependent Role="Yonker">
+              <PropertyRef Name="ubicacionID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WorkshopHNContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Category" EntityType="Self.Category" />
-          <EntitySet Name="Customers" EntityType="Self.Customers" />
-          <EntitySet Name="Employee" EntityType="Self.Employee" />
-          <EntitySet Name="Locations" EntityType="Self.Locations" />
-          <EntitySet Name="Products" EntityType="Self.Products" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="UsersHN" EntityType="Self.UsersHN" />
-          <EntitySet Name="Yonkers" EntityType="Self.Yonkers" />
-          <AssociationSet Name="CategoryId" Association="Self.CategoryId">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="Products" EntitySet="Products" />
+        <EntityContainer Name="YonkersContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
+          <EntitySet Name="ubicacion" EntityType="Self.ubicacion" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="Yonker" EntityType="Self.Yonker" />
+          <AssociationSet Name="FK__Producto__catego__6A30C649" Association="Self.FK__Producto__catego__6A30C649">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
-          <AssociationSet Name="CustomerId" Association="Self.CustomerId">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="UsersHN" EntitySet="UsersHN" />
+          <AssociationSet Name="FK__Cliente__usuario__4316F928" Association="Self.FK__Cliente__usuario__4316F928">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cliente" EntitySet="Cliente" />
           </AssociationSet>
-          <AssociationSet Name="EmployeeId" Association="Self.EmployeeId">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="UsersHN" EntitySet="UsersHN" />
+          <AssociationSet Name="FK__Empleado__usuari__44FF419A" Association="Self.FK__Empleado__usuari__44FF419A">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
-          <AssociationSet Name="YonkerId" Association="Self.YonkerId">
-            <End Role="Yonkers" EntitySet="Yonkers" />
-            <End Role="Employee" EntitySet="Employee" />
+          <AssociationSet Name="FK__Empleado__yonker__440B1D61" Association="Self.FK__Empleado__yonker__440B1D61">
+            <End Role="Yonker" EntitySet="Yonker" />
+            <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
-          <AssociationSet Name="LocationId" Association="Self.LocationId">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="Yonkers" EntitySet="Yonkers" />
+          <AssociationSet Name="FK__Producto__yonker__45F365D3" Association="Self.FK__Producto__yonker__45F365D3">
+            <End Role="Yonker" EntitySet="Yonker" />
+            <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
-          <AssociationSet Name="ProductId" Association="Self.ProductId">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="Yonkers" EntitySet="Yonkers" />
+          <AssociationSet Name="FK__Yonker__ubicacio__47DBAE45" Association="Self.FK__Yonker__ubicacio__47DBAE45">
+            <End Role="ubicacion" EntitySet="ubicacion" />
+            <End Role="Yonker" EntitySet="Yonker" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -389,87 +355,70 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WorkshopHNModelStoreContainer" CdmEntityContainer="WorkshopHNContext">
-          <EntitySetMapping Name="Category">
-            <EntityTypeMapping TypeName="WorkshopHNModel.Category">
-              <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Descripction" ColumnName="Descripction" />
+        <EntityContainerMapping StorageEntityContainer="RecanvisHNbacpacModelStoreContainer" CdmEntityContainer="YonkersContext">
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="RecanvisHN.bacpacModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="categoriaID" ColumnName="categoriaID" />
+                <ScalarProperty Name="nombreca" ColumnName="nombreca" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="WorkshopHNModel.Customers">
-              <MappingFragment StoreEntitySet="Customers">
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="RecanvisHN.bacpacModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="clienteID" ColumnName="clienteID" />
+                <ScalarProperty Name="nombrecli" ColumnName="nombrecli" />
+                <ScalarProperty Name="usuariocli" ColumnName="usuariocli" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="usuarioID" ColumnName="usuarioID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Employee">
-            <EntityTypeMapping TypeName="WorkshopHNModel.Employee">
-              <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="YonkerId" ColumnName="YonkerId" />
+          <EntitySetMapping Name="Empleado">
+            <EntityTypeMapping TypeName="RecanvisHN.bacpacModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="empleadoID" ColumnName="empleadoID" />
+                <ScalarProperty Name="nombreemp" ColumnName="nombreemp" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="yonkerID" ColumnName="yonkerID" />
+                <ScalarProperty Name="usuarioID" ColumnName="usuarioID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Locations">
-            <EntityTypeMapping TypeName="WorkshopHNModel.Locations">
-              <MappingFragment StoreEntitySet="Locations">
-                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
-                <ScalarProperty Name="Zone" ColumnName="Zone" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="RecanvisHN.bacpacModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="productoID" ColumnName="productoID" />
+                <ScalarProperty Name="nombrepro" ColumnName="nombrepro" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="yonkerID" ColumnName="yonkerID" />
+                <ScalarProperty Name="categoriaID" ColumnName="categoriaID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="WorkshopHNModel.Products">
-              <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <EntitySetMapping Name="ubicacion">
+            <EntityTypeMapping TypeName="RecanvisHN.bacpacModel.ubicacion">
+              <MappingFragment StoreEntitySet="ubicacion">
+                <ScalarProperty Name="ubicacionID" ColumnName="ubicacionID" />
+                <ScalarProperty Name="nombreU" ColumnName="nombreU" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="WorkshopHNModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="RecanvisHN.bacpacModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="usuarioID" ColumnName="usuarioID" />
+                <ScalarProperty Name="tipoU" ColumnName="tipoU" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UsersHN">
-            <EntityTypeMapping TypeName="WorkshopHNModel.UsersHN">
-              <MappingFragment StoreEntitySet="UsersHN">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Yonkers">
-            <EntityTypeMapping TypeName="WorkshopHNModel.Yonkers">
-              <MappingFragment StoreEntitySet="Yonkers">
-                <ScalarProperty Name="YonkerId" ColumnName="YonkerId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <EntitySetMapping Name="Yonker">
+            <EntityTypeMapping TypeName="RecanvisHN.bacpacModel.Yonker">
+              <MappingFragment StoreEntitySet="Yonker">
+                <ScalarProperty Name="yonkerID" ColumnName="yonkerID" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ubicacionID" ColumnName="ubicacionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

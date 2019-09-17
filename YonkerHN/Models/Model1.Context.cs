@@ -13,10 +13,10 @@ namespace YonkerHN.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WorkshopHNContext : DbContext
+    public partial class YonkersContext : DbContext
     {
-        public WorkshopHNContext()
-            : base("name=WorkshopHNContext")
+        public YonkersContext()
+            : base("name=YonkersContext")
         {
         }
     
@@ -25,13 +25,12 @@ namespace YonkerHN.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<Customers> Customers { get; set; }
-        public virtual DbSet<Employee> Employee { get; set; }
-        public virtual DbSet<Locations> Locations { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<UsersHN> UsersHN { get; set; }
-        public virtual DbSet<Yonkers> Yonkers { get; set; }
+        public virtual DbSet<Categoria> Categoria { get; set; }
+        public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<Empleado> Empleado { get; set; }
+        public virtual DbSet<Producto> Producto { get; set; }
+        public virtual DbSet<ubicacion> ubicacion { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Yonker> Yonker { get; set; }
     }
 }

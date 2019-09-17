@@ -12,21 +12,23 @@ namespace YonkerHN.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Products
+    public partial class Yonker
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Products()
+        public Yonker()
         {
-            this.Yonkers = new HashSet<Yonkers>();
+            this.Empleado = new HashSet<Empleado>();
+            this.Producto = new HashSet<Producto>();
         }
     
-        public int ProductId { get; set; }
-        public string Name { get; set; }
-        public string Code { get; set; }
-        public Nullable<int> CategoryId { get; set; }
+        public int yonkerID { get; set; }
+        public string nombre { get; set; }
+        public int ubicacionID { get; set; }
     
-        public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Yonkers> Yonkers { get; set; }
+        public virtual ICollection<Empleado> Empleado { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Producto> Producto { get; set; }
+        public virtual ubicacion ubicacion { get; set; }
     }
 }

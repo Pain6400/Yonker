@@ -12,15 +12,14 @@ namespace YonkerHN.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UsersHN
+    public partial class Cliente
     {
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public int EmployeeId { get; set; }
-        public Nullable<int> CustomerId { get; set; }
+        public int clienteID { get; set; }
+        public string nombrecli { get; set; }
+        public string usuariocli { get; set; }
+        public string contraseña { get; set; }
+        public int usuarioID { get; set; }
     
-        public virtual Customers Customers { get; set; }
-        public virtual Employee Employee { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

@@ -12,12 +12,15 @@ namespace YonkerHN.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class Empleado
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int empleadoID { get; set; }
+        public string nombreemp { get; set; }
+        public string contraseña { get; set; }
+        public int yonkerID { get; set; }
+        public int usuarioID { get; set; }
+    
+        public virtual Usuario Usuario { get; set; }
+        public virtual Yonker Yonker { get; set; }
     }
 }

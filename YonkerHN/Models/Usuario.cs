@@ -12,22 +12,21 @@ namespace YonkerHN.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
+        public Usuario()
         {
-            this.UsersHN = new HashSet<UsersHN>();
+            this.Cliente = new HashSet<Cliente>();
+            this.Empleado = new HashSet<Empleado>();
         }
     
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> Phone { get; set; }
-        public string Email { get; set; }
-        public Nullable<int> YonkerId { get; set; }
+        public int usuarioID { get; set; }
+        public string tipoU { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UsersHN> UsersHN { get; set; }
-        public virtual Yonkers Yonkers { get; set; }
+        public virtual ICollection<Cliente> Cliente { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Empleado> Empleado { get; set; }
     }
 }
